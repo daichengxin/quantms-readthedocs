@@ -23,7 +23,7 @@ copyright = '2022, daichengxin, jpfeuffer, timosachenberg, ypriverol'
 author = 'daichengxin, jpfeuffer, timosachenberg, ypriverol'
 
 # The full version, including alpha/beta/rc tags
-release = '1.4.0'
+release = '1.5.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -68,6 +68,8 @@ if os.environ.get("READTHEDOCS") == "True":
 
         # Download the output file
         download_output()
-    
+
     def setup(app):
+        # on extensions, see:
+        # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
         app.connect("builder-inited", download_files)
