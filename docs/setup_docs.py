@@ -37,14 +37,15 @@ def download_output(output_path="quantms_output.md"):
     for Sphinx documentation purposes.
     """
     # new folders would need to be created if necessary
-
+    
     if download_file(OUTPUT_URL, output_path):
+        # will raise an exception if the download fails
         print(f"Output file saved to {output_path}")
-    else:
-        print(f"Failed to download the output format files from: {OUTPUT_URL}")
         
     with open(output_path, "r") as f:
         content = f.readlines()
+        
+    assert len(content) > 0, "Downloaded file is empty"
     
     content[0] = '# quantms outputs\n'
     
