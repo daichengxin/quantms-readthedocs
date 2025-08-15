@@ -67,7 +67,7 @@ DeepLC Features (6 features)
 | RtDiff | Difference between observed and predicted |
 | *Best variants | Best predictions across multiple PSMs |
 
-Spectrum-Based Features 📊
+Spectrum-Based Features
 
 Signal Quality Metrics
 - **Signal-to-Noise Ratio (SNR)**: Calculates ratio of maximum intensity to background noise
