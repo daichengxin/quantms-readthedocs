@@ -145,8 +145,9 @@ quantms provides comprehensive control over the rescoring process through the fo
 - ``--ms2_model_dir`` (default: ``null``): Path to local MS2 prediction model files to avoid repeated downloads
 - ``--find_best_model`` (default: ``true``): Automatically find the best MS2 model for the dataset
 - ``--force_model`` (default: ``false``): Force usage of the specified MS2PIP model without optimization
+.. _supported-ms2pip-models:
 
-**Feature Generation**
+Supported MS2PIP Models
 
 - ``--feature_generators`` (default: ``deeplc,ms2pip``): Specifies which feature generators to use
 - ``--add_snr_feature_percolator`` (default: ``false``): Add signal-to-noise ratio features for identification rescoring
