@@ -88,6 +88,8 @@ The last step of the workflow, summaries the information and then generates repo
 
 **Match between runs (MBR)**: In MBR is allowed, peptides identified by tandem mass spectra in one run are transferred to another by inference based on m/z, charge state, retention time, and ion mobility when applicable. This is done manually.
 
+.. note:: For DIA analyses using DIA-NN, prefer contaminants with UniProt descriptions that include gene names (e.g., ``contaminants-202105-uniprot-description.fasta``). This enables correct gene grouping in DIA-NN. See :doc:`protein_database` and the dataset listing `quantms-test-datasets/databases <https://github.com/bigbio/quantms-test-datasets/tree/quantms/databases>`__.
+
 MSstats
 ------------
 

@@ -15,14 +15,14 @@ Contents
 
    usage
    introduction
-   formats
-   quantms_output
    preprocessing
    identification
+   protein_database
    dda
    dia
    statistics
    parameters
+   inputs_outputs
    pmultiqc
    benchmarks
    comparison

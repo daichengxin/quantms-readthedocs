@@ -12,11 +12,6 @@ The pre-requisites to run quantms are:
 - Container environment: `Docker <https://docs.docker.com/engine/installation/>`_,
   `Singularity <https://www.sylabs.io/guides/3.0/user-guide/>`_,
   `Podman <https://podman.io/getting-started/installation>`_ 
-
-.. warning:: 
-
-   `Conda <https://conda.io/miniconda.html>`_ is not supported by quantms from
-   version ``1.4.0`` onwards.
    
 .. note:: If you want to download locally the quantms workflow you should also install 
           `git in your environment <https://git-scm.com/downloads>`_
@@ -82,6 +77,11 @@ Start running your own analysis!
 See `usage docs <https://nf-co.re/quantms/usage>`_ for all of the available options when
 running the pipeline. Or configure the pipeline via
 `nf-core launch <https://nf-co.re/launch/quantms>`_ from the web or the command line.
+
+.. warning:: 
+
+   `Conda <https://conda.io/miniconda.html>`_ is not supported by quantms from
+   version ``1.4.0`` onwards.
 
 Contact Us
 --------------------
