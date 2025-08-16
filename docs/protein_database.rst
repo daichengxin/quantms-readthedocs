@@ -65,9 +65,8 @@ Beyond target-decoy, an additional strategy is to include entrapment proteins (f
 - Concatenate a set of entrapment protein sequences (e.g., from an unrelated organism) to your target database. Keep them distinguishable (e.g., prefix ``ENTRAPMENT_``).
 - For DIA analyses (e.g., DIA-NN 1.8.*), entrapment can help evaluate FDR control, especially in multi-dataset integration scenarios.
 - See the assessment with entrapment in Nature Methods (2025) and the FDRBench resources:
-  - Nature Methods article: `Assessment of false discovery rate control using entrapment <https://www.nature.com/articles/s41592-025-02719-x>`__
+  - Nature Methods article: `Assessment of false discovery rate control in tandem mass spectrometry analysis using entrapment <https://doi.org/10.1038/s41592-025-02719-x>`__
   - FDRBench repository: `Noble-Lab/FDRBench <https://github.com/Noble-Lab/FDRBench>`__
-
 FDRBench-based decoy and entrapment generation
 ----------------------------------------------
 
