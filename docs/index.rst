@@ -137,8 +137,8 @@ quantms: A cloud-based workflow for peptide and protein quantification
    usage
    introduction
    preprocessing
-   identification
    protein_database
+   identification
    dda
    dia
    statistics
