@@ -93,6 +93,18 @@ After the re-scoring of the peptide identification and combination of the result
 (if multiple search engines are allowed), quantms allows the fdr calculation steps (read more in :doc:`fdr`) and
 optionally the modification sites localization (read more in :doc:`modlocal`). The final results are exported in idXML and csv formats (compatible with Parquet).
 
+N-terminal methionine excision (met_excision)
+---------------------------------------------
+
+- Parameter: ``--met_excision`` (default: ``true``)
+- Purpose: Accounts for co-translational removal of the initial N-terminal methionine from proteins. If enabled, the search allows peptides that start at the second amino acid position after Met removal, improving identification when this biology is present.
+- Notes:
+  - Supported by Comet and MS-GF+ in the workflow.
+  - Currently not supported by SAGE; the setting may be ignored for SAGE searches.
+- When to adjust: Disable only if you know your samples do not exhibit N-terminal methionine excision and you want to reduce the search space minimally. In most proteomics data this excision is common and keeping it enabled is recommended.
+
+See `Database search <parameters.html#database-search>`_ for this and related options (enzyme specificity, termini, tolerances, modifications).
+
 Relevant parameters
 -------------------
 
