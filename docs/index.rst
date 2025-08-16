@@ -13,6 +13,9 @@ Contents
 .. toctree::
    :maxdepth: 1
 
+   quickstart
+   getting_started
+   tutorials
    usage
    introduction
    preprocessing
@@ -27,6 +30,8 @@ Contents
    benchmarks
    comparison
    capabilities
+   glossary
+   troubleshooting
    debug
    faq
    presentations

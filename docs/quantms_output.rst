@@ -1,10 +1,6 @@
 quantms outputs
 ===============
 
-bigbio/quantms: Output
-======================
-
-
 Introduction
 ------------
 
