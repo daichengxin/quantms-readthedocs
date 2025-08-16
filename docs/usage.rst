@@ -1,22 +1,17 @@
 Installation and usage
 ==========================
 
-The quantms pipeline is built using `Nextflow <https://www.nextflow.io>`_, a workflow tool
+The quantms pipeline is built using `Nextflow <https://www.nextflow.io>`__, a workflow tool
 to run tasks across multiple compute infrastructures in a very portable manner.
 It comes with docker/singularity/podman... containers making installation trivial 
 and results highly reproducible.
 
 The pre-requisites to run quantms are:
 
-- `Nextflow <https://www.nextflow.io>`_
+- `Nextflow <https://www.nextflow.io>`__
 - Container environment: `Docker <https://docs.docker.com/engine/installation/>`_,
   `Singularity <https://www.sylabs.io/guides/3.0/user-guide/>`_,
   `Podman <https://podman.io/getting-started/installation>`_ 
-
-.. warning:: 
-
-   `Conda <https://conda.io/miniconda.html>`_ is not supported by quantms from
-   version ``1.4.0`` onwards.
    
 .. note:: If you want to download locally the quantms workflow you should also install 
           `git in your environment <https://git-scm.com/downloads>`_
@@ -50,21 +45,28 @@ This will store a local copy of the pipeline, in order to be able to run it you 
 
    nextflow run main.nf -c nextflow.config -profile test_lfq,<docker/singularity/podman/institute>
 
-You can use nextflow to directly pull from the github:
+You can use nextflow to directly pull from GitHub:
 
 .. code-block:: bash
 
-   nextflow run bigbio/quantms -r dev -profile test_lfq,<docker/singularity/podman/institute>
+   nextflow run bigbio/quantms -profile test_lfq,<docker/singularity/podman/institute>
 
+.. note::
+   By default, the above command will use the latest released version of the quantms pipeline.
+   If you wish to use the development branch, add the ``-r dev`` parameter:
+
+   .. code-block:: bash
+
+      nextflow run bigbio/quantms -r dev -profile test_lfq,<docker/singularity/podman/institute>
 .. note:: Please check `nf-core/configs <https://github.com/nf-core/configs#documentation>`_ 
    to see if a custom config file to run nf-core pipelines already exists for your Institute. 
    If so, you can simply use `-profile <institute>` in your command. 
    This will enable either `docker` or `singularity` and set the appropriate execution 
    settings for your local compute environment.
 
-By using container's environments (e.g. Docker, Singularity or Podman) the user of quantms 
-do not needs to install any dependency, software or tool manually. By using 
-container environments the quantms guaranty the reproducibility/reliability of the analysis.
+By using container environments (e.g. Docker, Singularity or Podman) quantms users 
+do not need to install any dependency, software or tool manually. Using 
+container environments helps quantms guarantee reproducibility and reliability of the analysis.
 
 Usage
 -------------------
@@ -82,6 +84,11 @@ Start running your own analysis!
 See `usage docs <https://nf-co.re/quantms/usage>`_ for all of the available options when
 running the pipeline. Or configure the pipeline via
 `nf-core launch <https://nf-co.re/launch/quantms>`_ from the web or the command line.
+
+.. warning:: 
+
+   `Conda <https://conda.io/miniconda.html>`_ is not supported by quantms from
+   version ``1.4.0`` onwards.
 
 Contact Us
 --------------------

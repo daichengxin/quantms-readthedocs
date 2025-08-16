@@ -23,7 +23,7 @@ copyright = '2022, daichengxin, jpfeuffer, timosachenberg, ypriverol'
 author = 'daichengxin, jpfeuffer, timosachenberg, ypriverol'
 
 # The full version, including alpha/beta/rc tags
-release = '1.5.0'
+release = '1.6.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -59,6 +59,11 @@ numfig = True
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# Custom CSS files to include
+html_css_files = [
+    'custom.css',
+]
 
 if os.environ.get("READTHEDOCS") == "True":
     # If we are building on ReadTheDocs, we need to download the output file

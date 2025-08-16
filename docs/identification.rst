@@ -12,7 +12,7 @@ Peptide identification from fragment spectra
    idpep
    fdr
    modlocal
-   ms2rescore
+   rescoring
 
 The peptide identification workflow is the cornerstone of data-dependent acquisition (DDA)
 quantification methods such as LFQ or TMT. To identify proteins by mass spectrometry, the proteins of interest in the sample are
@@ -80,7 +80,7 @@ quantms provides two different algorithms and tools for re-scoring of the peptid
 and :doc:`idpep`. By default, quantms uses the :doc:`percolator` algorithm, which has proved to increase peptide
 identifications for :doc:`comet` and :doc:`msgf` search engines. quantms supports multiple strategies (individual run/by samples/by projects) to re-scoring.
 The former was shown to have less time consuming and comparable performance.
-quantms also introduces LC-MS predictors such as MS²PIP and DeepLC to boost identification rate by :doc:`ms2rescore`.
+quantms also introduces LC-MS predictors such as MS²PIP and DeepLC to boost identification rate by :doc:`rescoring`.
 
 .. note:: In some cases, Percolator fails to boost the original search engines, especially in cases like small datasets
           where the number of peptide identifications is insufficient). As an alternative, quantms offers a fully parameterized
@@ -92,6 +92,25 @@ quantms also introduces LC-MS predictors such as MS²PIP and DeepLC to boost ide
 After the re-scoring of the peptide identification and combination of the results from multiple search engines
 (if multiple search engines are allowed), quantms allows the fdr calculation steps (read more in :doc:`fdr`) and
 optionally the modification sites localization (read more in :doc:`modlocal`). The final results are exported in idXML and csv formats (compatible with Parquet).
+
+N-terminal methionine excision (met_excision)
+---------------------------------------------
+
+- Parameter: ``--met_excision`` (default: ``true``)
+- Purpose: Accounts for co-translational removal of the initial N-terminal methionine from proteins. If enabled, the search allows peptides that start at the second amino acid position after Met removal, improving identification when this biology is present.
+- Notes:
+  - Supported by Comet and MS-GF+ in the workflow.
+  - Currently not supported by SAGE; the setting may be ignored for SAGE searches.
+- When to adjust: Disable only if you know your samples do not exhibit N-terminal methionine excision and you want to reduce the search space minimally. In most proteomics data this excision is common and keeping it enabled is recommended.
+
+See `Database search <parameters.html#database-search>`_ for this and related options (enzyme specificity, termini, tolerances, modifications).
+
+Relevant parameters
+-------------------
+
+- See `Database search <parameters.html#database-search>`_ for enzyme, tolerances, and modification options.
+- See `Consensus ID <parameters.html#consensus-id>`_ for multi-engine combination settings.
+- See `PSM re-scoring (general) <parameters.html#psm-re-scoring-general>`_ and `PSM re-scoring (Percolator) <parameters.html#psm-re-scoring-percolator>`_.
 
 References
 ---------------------------
