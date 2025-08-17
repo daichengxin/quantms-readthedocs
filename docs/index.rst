@@ -12,15 +12,66 @@ quantms: A cloud-based workflow for peptide and protein quantification
    :width: 600
    :align: center
 
+Quickstart: 5-minute test
+==========================
+
+.. raw:: html
+
+   <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 25px; border-radius: 10px; color: white; text-align: center; margin: 20px 0;">
+      <h3 style="margin: 0; font-size: 20px;">⚡ Get quantms running in 5 minutes</h3>
+      <p style="margin: 10px 0;">Test the pipeline with Docker using our sample dataset</p>
+   </div>
+
+.. raw:: html
+
+   <div style="background: #1f2937; color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+         <span style="background: #22c55e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">1</span>
+         <span style="font-size: 18px; font-weight: bold;">Install Nextflow (one-time setup)</span>
+      </div>
+      <div style="background: #374151; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 14px; margin: 10px 0;">
+         curl -s https://get.nextflow.io | bash<br>
+         mv nextflow ~/.local/bin/
+      </div>
+   </div>
+
+.. raw:: html
+
+   <div style="background: #1f2937; color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+         <span style="background: #3b82f6; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">2</span>
+         <span style="font-size: 18px; font-weight: bold;">Run the test</span>
+      </div>
+      <div style="background: #374151; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 14px; margin: 10px 0;">
+         nextflow run bigbio/quantms -r 1.6.0 -profile test_lfq,docker
+      </div>
+      <div style="background: #065f46; padding: 10px; border-radius: 4px; margin-top: 10px;">
+         <strong>✅ Success:</strong> You should see "Pipeline completed successfully!" after 5-10 minutes
+      </div>
+   </div>
+
+.. note::
+   **Prerequisites**: Make sure you have Java 11+ and Docker installed.
+
+.. raw:: html
+
+   <div style="background: #ede9fe; padding: 20px; border-radius: 8px; border-left: 4px solid #8b5cf6; margin: 20px 0;">
+      <h4 style="margin: 0 0 10px 0; color: #8b5cf6;">🎯 Ready for your own data?</h4>
+      <p style="margin: 0 0 15px 0;">Replace the test files with your own:</p>
+      <div style="background: #1f2937; color: #f9fafb; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 12px; margin: 10px 0;">
+         nextflow run bigbio/quantms -r 1.6.0 \<br>
+         &nbsp;&nbsp;--input YOUR_EXPERIMENT.sdrf.tsv \<br>
+         &nbsp;&nbsp;--database YOUR_PROTEOME.fasta \<br>
+         &nbsp;&nbsp;-profile docker
+      </div>
+   </div>
+
+Navigate to the right section
+=============================
+
 .. raw:: html
 
    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-      
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
-         <h3 style="margin: 0 0 10px 0; color: #28a745;">🚀 Quick Start</h3>
-         <p style="margin: 0 0 15px 0;">Get up and running in minutes with our test dataset</p>
-         <a href="quickstart.html" style="color: #28a745; text-decoration: none; font-weight: bold;">→ Run your first analysis</a>
-      </div>
       
       <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #007bff;">
          <h3 style="margin: 0 0 10px 0; color: #007bff;">📖 Learn the Basics</h3>
@@ -32,6 +83,12 @@ quantms: A cloud-based workflow for peptide and protein quantification
          <h3 style="margin: 0 0 10px 0; color: #e68900;">🎯 Step-by-Step</h3>
          <p style="margin: 0 0 15px 0;">Follow detailed tutorials for your data type</p>
          <a href="tutorials.html" style="color: #e68900; text-decoration: none; font-weight: bold;">→ View tutorials</a>
+      </div>
+      
+      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
+         <h3 style="margin: 0 0 10px 0; color: #28a745;">⚙️ Configure</h3>
+         <p style="margin: 0 0 15px 0;">Customize parameters for your analysis</p>
+         <a href="parameters.html" style="color: #28a745; text-decoration: none; font-weight: bold;">→ Parameter reference</a>
       </div>
    </div>
 
@@ -131,7 +188,6 @@ quantms: A cloud-based workflow for peptide and protein quantification
    :maxdepth: 1
    :hidden:
 
-   quickstart
    getting_started
    tutorials
    usage
