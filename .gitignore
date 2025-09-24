@@ -8,3 +8,7 @@
 .coverage.*.*
 .coverage.*.*.*
 .coverage.*.*.*.*
+
+# Temporary files from documentation build process
+docs/_tmp_nextflow_schema.json
+docs/images/upload_example*.tsv
