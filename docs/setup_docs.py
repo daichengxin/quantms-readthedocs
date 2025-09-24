@@ -1,10 +1,10 @@
 import requests
 
 OUTPUT_URL = (
-    "https://raw.githubusercontent.com/bigbio/quantms/HEAD/docs/output.md"
+    "https://raw.githubusercontent.com/bigbio/quantms/master/docs/output.md"
 )
 SCHEMA_URL = (
-    "https://raw.githubusercontent.com/bigbio/quantms/HEAD/nextflow_schema.json"
+    "https://raw.githubusercontent.com/bigbio/quantms/master/nextflow_schema.json"
 )
 
 
@@ -21,17 +21,24 @@ def download_file(url, save_path, timeout=20):
         bool: True if download was successful, False otherwise
     """
 
-    # Send GET request
-    response = requests.get(url, stream=True, timeout=timeout)
-    response.raise_for_status()  # Raise exception for HTTP errors
+    try:
+        # Send GET request
+        response = requests.get(url, stream=True, timeout=timeout)
+        response.raise_for_status()  # Raise exception for HTTP errors
 
-    # Write content to file
-    with open(save_path, "wb") as f:
-        for chunk in response.iter_content(chunk_size=8192):
-            f.write(chunk)
+        # Write content to file
+        with open(save_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
 
-    print(f"Successfully downloaded: {url} to {save_path}")
-    return True
+        print(f"Successfully downloaded: {url} to {save_path}")
+        return True
+    except requests.exceptions.RequestException as e:
+        print(f"Error downloading {url}: {e}")
+        return False
+    except Exception as e:
+        print(f"Unexpected error downloading {url}: {e}")
+        return False
 
 
 def _md_to_rst(md_text: str) -> str:
@@ -108,27 +115,65 @@ def download_output(output_path="quantms_output.rst"):
 
     # Download the upstream Markdown file to a temporary location
     tmp_md = output_path if output_path.endswith(".md") else "quantms_output.md"
-    assert download_file(OUTPUT_URL, tmp_md)  # prints success message
+    
+    if not download_file(OUTPUT_URL, tmp_md):
+        print(f"Warning: Failed to download {OUTPUT_URL}")
+        # Create a minimal fallback file
+        rst_path = output_path if output_path.endswith(".rst") else "quantms_output.rst"
+        fallback_content = """quantms outputs
+===============
 
-    with open(tmp_md, "r") as f:
-        md_text = f.read()
-    assert md_text.strip(), "Downloaded file is empty"
+.. note:: The output documentation could not be downloaded from the quantms repository. 
+   Please check the `quantms repository <https://github.com/bigbio/quantms>`_ for the latest output documentation.
+"""
+        with open(rst_path, "w") as f:
+            f.write(fallback_content)
+        return
 
-    # Convert to reStructuredText
-    rst_text = _md_to_rst(md_text)
-
-    # Write to .rst for Sphinx to pick up
-    rst_path = output_path if output_path.endswith(".rst") else "quantms_output.rst"
-    with open(rst_path, "w") as f:
-        f.write(rst_text)
-
-    # Remove temporary md file to avoid duplicate docnames
     try:
-        if tmp_md != rst_path:
-            import os
-            os.remove(tmp_md)
-    except OSError:
-        pass
+        with open(tmp_md, "r") as f:
+            md_text = f.read()
+        
+        if not md_text.strip():
+            print("Warning: Downloaded file is empty")
+            # Create a minimal fallback file
+            rst_path = output_path if output_path.endswith(".rst") else "quantms_output.rst"
+            fallback_content = """quantms outputs
+===============
+
+.. note:: The downloaded output file was empty. Please check the `quantms repository <https://github.com/bigbio/quantms>`_ for the latest output documentation.
+"""
+            with open(rst_path, "w") as f:
+                f.write(fallback_content)
+            return
+
+        # Convert to reStructuredText
+        rst_text = _md_to_rst(md_text)
+
+        # Write to .rst for Sphinx to pick up
+        rst_path = output_path if output_path.endswith(".rst") else "quantms_output.rst"
+        with open(rst_path, "w") as f:
+            f.write(rst_text)
+
+        # Remove temporary md file to avoid duplicate docnames
+        try:
+            if tmp_md != rst_path:
+                import os
+                os.remove(tmp_md)
+        except OSError:
+            pass
+            
+    except Exception as e:
+        print(f"Error processing downloaded file: {e}")
+        # Create a minimal fallback file
+        rst_path = output_path if output_path.endswith(".rst") else "quantms_output.rst"
+        fallback_content = f"""quantms outputs
+===============
+
+.. note:: Error processing the downloaded output file: {e}. Please check the `quantms repository <https://github.com/bigbio/quantms>`_ for the latest output documentation.
+"""
+        with open(rst_path, "w") as f:
+            f.write(fallback_content)
 
 
 def _collect_params(node, prefix=None):
@@ -259,17 +304,38 @@ def _schema_to_rst(schema_obj):
 def generate_parameters(parameters_path="parameters.rst"):
     """Download nextflow_schema.json and render parameters.rst."""
     import json
+    
+    # Download schema
+    schema_tmp = "nextflow_schema.json"
+    downloaded = download_file(SCHEMA_URL, schema_tmp)
+    
+    if not downloaded:
+        print(f"Warning: Failed to download schema from {SCHEMA_URL}")
+        # Create a minimal fallback file
+        fallback_content = """Parameters
+==========
+
+.. note:: The parameters documentation could not be downloaded from the quantms repository. 
+   Please check the `quantms repository <https://github.com/bigbio/quantms>`_ for the latest parameters documentation.
+"""
+        with open(parameters_path, "w") as f:
+            f.write(fallback_content)
+        return
+    
     try:
-        # Download schema
-        schema_tmp = "nextflow_schema.json"
-        downloaded = download_file(SCHEMA_URL, schema_tmp)
-        if not downloaded:
-            raise RuntimeError("Schema download failed")
         with open(schema_tmp, "r") as f:
             schema_obj = json.load(f)
     except Exception as exc:
-        print(f"Warning: could not obtain or parse schema: {exc}")
-        raise RuntimeError("Failed to obtain or parse schema, cannot generate parameters.rst")
+        print(f"Warning: could not parse schema: {exc}")
+        # Create a minimal fallback file
+        fallback_content = f"""Parameters
+==========
+
+.. note:: Error parsing the downloaded schema file: {exc}. Please check the `quantms repository <https://github.com/bigbio/quantms>`_ for the latest parameters documentation.
+"""
+        with open(parameters_path, "w") as f:
+            f.write(fallback_content)
+        return
 
     rst = _schema_to_rst(schema_obj)
     with open(parameters_path, "w") as f:
