@@ -149,6 +149,7 @@ Navigate to the right section
          <ul style="margin: 0; padding-left: 20px;">
             <li><a href="preprocessing.html">Preprocessing</a></li>
             <li><a href="identification.html">Identification</a></li>
+            <li><a href="modlocal.html">Modification localization</a></li>
             <li><a href="protein_database.html">Protein Databases</a></li>
             <li><a href="statistics.html">Statistics</a></li>
          </ul>
@@ -195,6 +196,7 @@ Navigate to the right section
    preprocessing
    protein_database
    identification
+   modlocal
    dda
    dia
    statistics
