@@ -158,16 +158,6 @@ Algorithm Details
 
 **Citation**: Beausoleil et al. (2006) *Nature Biotechnology* [BEAUSOLEIL2006]_
 
-**Parameters**:
-
-.. code-block:: bash
-
-   --ascore_fragment_tolerance 0.05        # Fragment mass tolerance (Da)
-   --ascore_fragment_tolerance_ppm false   # Use ppm instead of Da
-   --ascore_max_peptide_length 40          # Maximum peptide length
-   --ascore_max_permutations 16384         # Maximum site permutations
-   --ascore_add_decoys false               # Include decoy sites (A residues)
-
 2. PhosphoRS Algorithm
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -193,15 +183,6 @@ Algorithm Details
 - **Probability < 75%**: Low confidence, consider ambiguous
 
 **Citation**: Taus et al. (2011) *Journal of Proteome Research* [TAUS2011]_
-
-**Parameters**:
-
-.. code-block:: bash
-
-   --phosphors_fragment_tolerance 0.05     # Fragment mass tolerance (Da)
-   --phosphors_fragment_tolerance_ppm false # Use ppm instead of Da
-   --phosphors_add_neutral_losses true     # Include neutral losses
-   --phosphors_add_decoys false            # Include decoy sites
 
 3. LucXor (LuciPHOr2) Algorithm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -231,22 +212,6 @@ Algorithm Details
 - **Local FLR < 0.01**: 1% charge-specific false localization rate
 
 **Citation**: Fermin et al. (2013, 2015) *MCP* and *Bioinformatics* [FERMIN2013]_ [FERMIN2015]_
-
-**Parameters**:
-
-.. code-block:: bash
-
-   --lucxor_fragment_method CID            # Fragmentation method (CID or HCD)
-   --lucxor_fragment_tolerance 0.5         # Fragment mass tolerance
-   --lucxor_fragment_error_units Da        # Tolerance units (Da or ppm)
-   --lucxor_min_mz 150.0                   # Minimum m/z value
-   --lucxor_decoy_mass 79.966331           # Decoy mass offset
-   --lucxor_max_charge_state 5             # Maximum charge state
-   --lucxor_max_peptide_length 40          # Maximum peptide length
-   --lucxor_max_num_perm 16384             # Maximum permutations
-   --lucxor_modeling_score_threshold 0.95  # Score threshold for modeling
-   --lucxor_min_num_psms_model 50          # Minimum PSMs for modeling
-   --lucxor_disable_split_by_charge false  # Disable charge splitting
 
 Parameter Reference
 -------------------
@@ -596,10 +561,10 @@ Additional Resources
       <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
          <h4 style="margin: 0 0 10px 0; color: #28a745;">🔬 Related Topics</h4>
          <ul style="margin: 0; padding-left: 20px;">
-            <li><a href="modlocal.html">Modification Localization (Legacy)</a></li>
             <li><a href="fdr.html">False Discovery Rate</a></li>
             <li><a href="pmultiqc.html">Quality Control</a></li>
             <li><a href="statistics.html">Statistical Analysis</a></li>
+            <li><a href="identification.html">Peptide Identification</a></li>
          </ul>
       </div>
       
