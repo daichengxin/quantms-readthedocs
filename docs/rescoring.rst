@@ -138,7 +138,7 @@ quantms-rescoring uses multiple open-source components to compute additional fea
 - **AlphaPeptDeep**: Predicts MS/MS peak intensities for peptide fragmentation
 - **Spectrum features**: Computes signal-to-noise ratio, spectral entropy, and other spectrum-derived metrics
 
-Using the parameter ``--feature_generators``, you can specify which feature generators to use. Possible values are ``deeplc``, ``ms2pip``, ``alphapeptdeep``. For ms2pip and alphapeptdeep, the model is specified using the ``--ms2_model`` parameter. To see the supported models, see the :ref:`supported-ms2pip-models-table` section. If the feature generator is alphapeptdeep, the ``--ms2_model`` MUST be ``generic``. For deeplc, the model is selected automatically. 
+Using the parameter ``--ms2features_generators``, you can specify which feature generators to use. Possible values are ``deeplc``, ``ms2pip``, ``alphapeptdeep``. For ms2pip and alphapeptdeep, the model is specified using the ``--ms2features_model`` parameter. To see the supported models, see the :ref:`supported-ms2pip-models-table` section. If the feature generator is alphapeptdeep, the ``--ms2features_model`` MUST be ``generic``. For deeplc, the model is selected automatically.
 
 .. note:: quantms-rescoring uses the model specified by the generator to compute features. The ms2pip and alphapeptdeep models are mutually exclusive; they cannot be used together.
 
@@ -170,7 +170,7 @@ Supported MS2PIP Models
 - ``--ms2features_generators`` (default: ``deeplc,ms2pip``): Specifies which feature generators to use
 - ``--ms2features_snr`` (default: ``false``): Whether to add signal-to-noise ratio features for identification rescoring in percolator
 
-.. _supported-AlphPeptDeep-models:
+.. _supported-AlphaPeptDeep-models:
 
 Supported AlphPeptDeep Models
 
@@ -178,7 +178,7 @@ Supported AlphPeptDeep Models
 - ``--fine_tuning_sample_run`` (default: ``1``): The number of sample ms run for transfer learning
 - ``--force_transfer_learning`` (default: ``false``): When enabled, Force save fine-tuning model even if retrained model is not better than pretrained model
 - ``--epoch_to_train_ms2`` (default: ``20``): The number of fine-tuning epoch
-` ``--transfer_learning_test_ratio`` (default: ``0.3``): The proportion of test data used for comparing fine-tuned models with pre-trained models
+- ``--transfer_learning_test_ratio`` (default: ``0.3``): The proportion of test data used for comparing fine-tuned models with pre-trained models
 
 **Technical Parameters**
 
