@@ -172,7 +172,7 @@ Supported MS2PIP Models
 
 .. _supported-AlphaPeptDeep-models:
 
-Supported AlphPeptDeep Models
+Supported AlphaPeptDeep Models
 
 - ``--ms2features_modloss`` (default: ``false``): Include modification loss ions in MS2 model predictions (useful for phospho-peptide analysis)
 - ``--fine_tuning_sample_run`` (default: ``1``): The number of sample ms run for transfer learning
