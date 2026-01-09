@@ -1,10 +1,10 @@
-Phosphorylation Site Localization with onsite
-=============================================
+Modification localization
+=========================
 
 .. raw:: html
 
    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px; color: white; text-align: center; margin: 20px 0;">
-      <h2 style="margin: 0; font-size: 24px;">🔬 Phosphorylation Site Localization</h2>
+      <h2 style="margin: 0; font-size: 24px;">🔬 Modification localization</h2>
       <p style="margin: 10px 0; font-size: 18px;">Confident PTM site assignment with multiple algorithms</p>
    </div>
 
