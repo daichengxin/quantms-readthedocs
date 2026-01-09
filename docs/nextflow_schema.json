@@ -1115,7 +1115,7 @@
                 },
                 "lfq_intensity_threshold": {
                     "type": "number",
-                    "description": "The minimum intensity for a feature to be considered for quantification. (default: '1000')",
+                    "description": "The minimum intensity for a feature to be considered for quantification. (default: '1000.0')",
                     "default": 1000.0,
                     "fa_icon": "fas fa-filter",
                     "help_text": "The minimum intensity for a feature to be considered for quantification. (default: '1000')"

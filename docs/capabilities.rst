@@ -30,7 +30,7 @@ This page summarizes key capabilities of quantms and references the version they
      - AlphaPeptDeep integration into quantms-rescoring. See `Release 1.6.0 <https://github.com/bigbio/quantms/releases/tag/1.6.0>`_.
    * - 1.7.0
      - 1.7.0
-     - quantms-rescoring supports AlphaPeptDeep transfer learning and replace LuciPHOr with onsite python package. See `Release 1.7.0 <https://github.com/bigbio/quantms/releases/tag/1.7.0>`_.
+     - quantms-rescoring supports AlphaPeptDeep transfer learning. LuciPHOrAdapter is replaced with onsite python package. See `Release 1.7.0 <https://github.com/bigbio/quantms/releases/tag/1.7.0>`_.
 
 
 .. note:: This table is intentionally succinct. Consult the GitHub `Releases page <https://github.com/bigbio/quantms/releases>`_ for detailed, authoritative notes.
