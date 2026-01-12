@@ -24,7 +24,7 @@ This example uses the public LFQ dataset **PXD001819**.
 Running quantms
 ---------------
 
-Run the LFQ workflow using the follow command:
+Run the LFQ workflow using the following command:
 
 .. code-block:: bash
 
@@ -50,7 +50,7 @@ General label-free LC-MS/MS runs.
 Outputs
 -------
 
-The main outputs are `msstats_in.csv` and `mzTab` files in `quant_tables` folder for Peptide-level quantitative table. Statistics can be found in pmultiqc folder
+The main outputs are `msstats_in.csv` and `mzTab` files in `quant_tables` folder for peptide-level quantitative table. Statistics can be found in pmultiqc folder
 
 Example Results
 ---------------
@@ -61,16 +61,11 @@ Example Results
    :width: 300
    :align: center
 
-By running and comparing different configuration of quantms, we found Specifically, combining Comet, MSGF+,
+By running and comparing different configurations of quantms, we found Specifically, combining Comet, MSGF+,
 and Sage resulted in a 17.9% increase in identified spectra relative to Comet alone.
 Incorporating MS²PIP and DeepLC features through quantms-rescoring provided an additional 10.7% increase.
 Overall, quantms achieved 28.6% more PSM identifications than MaxQuant.
 In practice analysis, we recommend that Comet and MSGF+ combined with quantms-rescoring is sufficient for balancing depth and efficiency.
-
-.. image:: images/PXD001819_supp.jpg
-   :width: 600
-   :align: center
-
 
 PTM-proteomics Analysis
 ------------------
@@ -94,7 +89,7 @@ This example uses the **PXD026824** public dataset.
 Running quantms
 ---------------
 
-Run the PTM-proteomics Analysis workflow using the follow command:
+Run the PTM-proteomics Analysis workflow using the following command:
 
 .. code-block:: bash
 
@@ -125,11 +120,11 @@ Example Results
    :width: 300
    :align: center
 
-By running and comparing different configuration of quantms,
+By running and comparing different configurations of quantms,
 Incorporating quantms-rescoring features into the two-search-engine consensus further increased the number of identified spectra by 24%.
 At the phosphosite level, the quantms-rescoring workflow uncovered 842 novel protein phosphorylation sites not detected in the other
 workflow configuration, and an additional 495 sites when considering the modloss ions.
-Together, We recommend that enabling quantms-rescoring and even fine-tuning for PTM analysis when model is available in practice analysis.
+Together, we recommend that enabling quantms-rescoring and even fine-tuning for PTM analysis when model is available in practice analysis.
 
 ----------------------------------------
 
@@ -153,7 +148,7 @@ This example uses **PXD019643** public datasets.
 Running quantms
 ---------------
 
-Run the Immunopeptidomics workflow using the follow command:
+Run the Immunopeptidomics workflow using the following command:
 
 .. code-block:: bash
 
@@ -215,7 +210,7 @@ This example uses **PDC000127** public datasets from CPTAC.
 Running quantms
 ---------------
 
-Run the Isobaric workflow using the follow command:
+Run the Isobaric workflow using the following command:
 
 .. code-block:: bash
 
@@ -239,7 +234,7 @@ This avoids duplicate downloads and enables quantms with quantms-rescoring on of
 Example Results
 ---------------
 
-By running and comparing different configuration of quantms, Some results are as follow:
+By running and comparing different configuration of quantms, Some results are as follows:
 
 .. image:: images/PDC_ms2rescore_v1.jpg
    :width: 300
